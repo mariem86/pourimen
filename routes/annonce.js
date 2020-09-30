@@ -38,10 +38,10 @@ router.delete("/deleteannonceartisan/:_id",isAuthenticate,isAuthorize(['client',
 // edit annonce artisan by Artisan && annonce client by client
 router.put("/editannonce/:_id",isAuthenticate,isAuthorize(['client','artisan',false]),(req,res)=>{
 
-    const {title,typeTravaux,speciality,description}=req.body
+    const {title,typeTravaux,speciality,description,date}=req.body
     const _id=req.params._id
 
-    Annonce.findOneAndUpdate({user: req.user.id,_id},{$set:{title,typeTravaux,speciality,description}})
+    Annonce.findOneAndUpdate({user: req.user.id,_id},{$set:{title,typeTravaux,speciality,description,date}},{new:true})
     .then(annonces=>res.send(annonces))
     .catch(err=>console.log(err))
 })

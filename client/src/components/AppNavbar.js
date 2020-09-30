@@ -22,6 +22,10 @@ const AppNavbar = () => {
           </Link>
         )}
       />
+     
+        <Link  style={{ textDecoration: "none", color: "white", fontSize: "25px" }} to="/Annonces">
+          Annonces
+        </Link>
       <Nav className="text-white">
         {isAuth ? (
           <Fragment>
@@ -36,6 +40,7 @@ const AppNavbar = () => {
               </Button>
             </NavItem>
           </Fragment>
+          
         ) : (
           <Fragment>
             <NavItem className="p-2">
